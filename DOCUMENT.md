@@ -220,7 +220,7 @@ https://mbaas.nifcloud.com/
  * APIキーは後で使用します。
 * ここでは使用しないので、「OK」で閉じます
 
-.center[<img src="document-img/make_mb_app_3.PNG" alt="make_mb_app_3" width="500px">]
+.center[<img src="document-img/make_mb_app_3.png" alt="make_mb_app_3" width="500px">]
 
 ---
 .footnote_right[
@@ -381,7 +381,7 @@ end
 #### SDK のインストール
 * Xcode プロジェクト「ObjcFormApp.xcworkspace」が作成されます
 
-.center[<img src="document-img/create_workspace.PNG" alt="terminalcreate_workspace_icon" width="450px">]
+.center[<img src="document-img/create_workspace.png" alt="terminalcreate_workspace_icon" width="450px">]
 
 ---
 .footnote_right[
