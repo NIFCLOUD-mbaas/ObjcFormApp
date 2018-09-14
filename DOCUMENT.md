@@ -843,7 +843,7 @@ CSVファイル作成時、日本語の文字化けを防ぐために、文字�
 
 * demo2と同様に、問い合わせデータ保存先クラス「Inquiry」を検索するためのクエリを作成、条件として問い合わせ日時の降順を指定します
 
-```Swift
+```objectivec
 // [demo3-1_1]保存先クラスのクエリを生成
 NCMBQuery *query = [NCMBQuery queryWithClassName:@"Inquiry"];
 ```
@@ -865,7 +865,7 @@ NCMBQuery *query = [NCMBQuery queryWithClassName:@"Inquiry"];
 
 * 入力したメールアドレスと一致するデータを指定します
 
-```Swift
+```objectivec
 // [demo3-1_3]検索条件（メールアドレス）の設定
 [query whereKey:@"emailAddress" equalTo:q];
 ```
