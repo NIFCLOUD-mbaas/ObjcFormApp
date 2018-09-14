@@ -250,7 +250,7 @@ mobile backend の準備は完了です
 
 .size_large_15[
 .center[
-__http://bit.ly/natsumo_ObjcFormApp__
+__http://bit.ly/natsumo_ObjcFormApp2__
 ]
 ]
 
