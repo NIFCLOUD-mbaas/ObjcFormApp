@@ -535,7 +535,7 @@ NCMBObject *object = [NCMBObject objectWithClassName:@"Inquiry"];
 [object setObject:contents forKey:@"contents"];
 ```
 
-`setObject:Key forKey:Vlaue` : フィールド「Key」にデータ「value」の設定
+`setObject:Value forKey:Key` : フィールド「Key」にデータ「Value」の設定
 
 ---
 .footnote_right[
@@ -591,7 +591,7 @@ NCMBObject *object = [NCMBObject objectWithClassName:@"Inquiry"];
 
 ### 『demo1：保存』動作確認
 
-* 確認ダイアロで「保存成功」と表示されれば正しく mobile backend 上にデータが格納されています
+* 確認ダイアログで「保存成功」と表示されれば正しく mobile backend 上にデータが格納されています
 
 .center[<img src="document-img/demo1_02.png" alt="demo1_02" width="350px">]
 
@@ -776,10 +776,10 @@ __参考__<br>
 ### 『demo2：全件検索』動作確認
 
 __参考__<br>
-CSVファイルを使ってデータを一括でアップロードすることも可能です。データストアの「Inquery」クラスを一度削除してから改めて「Inquery」でクラス名を指定し、下記内容で作成したCSVファイルをインポートしてください。
+CSVファイルを使ってデータを一括でアップロードすることも可能です。データストアの「Inquery」クラスを一度削除してから改めて「Inquery」でクラス名を指定し、下記内容で作成したCSVファイルをインポートしてください。（最初にダウンロードしたプロジェクトにも同報しています。）
 
 .size_small_7[
-.color_blue[__＜サンプルCSV＞ダミーデータ10件__]
+.color_blue[__dummyData.csv__]
 
 ```csv
 name,emailAddress,age,prefecture,title,contents
@@ -1016,7 +1016,7 @@ NCMBQuery *query = [NCMBQuery queryWithClassName:@"Inquiry"];
 [query whereKey:@"age" lessThan:ageLessThan];
 ```
 
-`whereKey:Key greaterThanOrEqualTo:Vulae` : <br>　　　　　　　　　　フィールド「Key」の値が「Value」以上のデータを指定<br>
+`whereKey:Key greaterThanOrEqualTo:Value` : <br>　　　　　　　　　　フィールド「Key」の値が「Value」以上のデータを指定<br>
 `whereKey:Key lessThan:Vulae` : <br>　　　　　　　　　　フィールド「Key」の値が「Value」未満のデータを指定<br>
 
 .size_small_7[（参考）<br>
@@ -1055,11 +1055,11 @@ NCMBQuery *query = [NCMBQuery queryWithClassName:@"Inquiry"];
 .size_small_7[
 ```objectivec
 // 10未満または50以上
-NCMBQuery *query1 = [NCMBQuery queryWithClassName:className];
-[query1 whereKey:@"key1" equalTo:@"value1"];
-NCMBQuery *query2 = [NCMBQuery queryWithClassName:className];
-[query2 whereKey:@"key2" equalTo:@"value2"];
-NCMBQuery *query = [NCMBQuery orQueryWithSubqueries:@[query1,query2]];
+NCMBQuery *subQuery1 = [NCMBQuery queryWithClassName:className];
+[query1 whereKey:@"age" lessThan:10];
+NCMBQuery *subQuery2 = [NCMBQuery queryWithClassName:className];
+[query2 whereKey:@"age" greaterThanOrEqualTo:50];
+NCMBQuery *query = [NCMBQuery orQueryWithSubqueries:@[subQuery1,subQuery2]];
 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (error) {
 
@@ -1154,12 +1154,45 @@ NCMBQuery *query = [NCMBQuery orQueryWithSubqueries:@[query1,query2]];
 
 ### その他 mobile backend でできること
 #### データストアの機能
+* **その他の検索条件**
+.size_small_9[
+* `limit`
+  * デフォルトで検索取得できる件数は100件です
+  * `limit` を使うことで取得件数を 1～1000 件まで設定することが可能
+  * 例）5件取得
+```objectivec
+[query setLimit:5];
+```
+* `count`
+  * 検索対象の件数を取得することが可能
+  * 例）
+```objectivec
+[query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+    if (error) {
+        NSLog(@"%@", error);
+    } else {
+        NSLog(@"%d", number);
+    }
+}];
+```
+]
+
+---
+.footnote_right[
+.right[
+ハンズオン<br>5. おまけ
+]
+]
+
+### その他 mobile backend でできること
+#### データストアの機能
 * **ポインタ・リレーション**
-  * データ同士を関連付けすることができます
+    * データ同士を関連付けすることができます
 * **参照権限（ACL）**
-  * データの読み書きを制限できます
+    * データの読み書きを制限できます
 
 （参考）[データストア \(iOS\) : 基本的な使い方 \| ニフクラ mobile backend](https://mbaas.nifcloud.com/doc/current/datastore/basic_usage_ios.html)
+
 ---
 .footnote_right[
 .right[
