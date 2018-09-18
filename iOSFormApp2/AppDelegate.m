@@ -29,8 +29,7 @@
     // Override point for customization after application launch.
     
     /***** APIキーの設定とSDKの初期化 *****/
-//    [NCMB setApplicationKey:@"YOUR_NCMB_APPLICATION_KEY" clientKey:@"YOUR_NCMB_CLIENT_KEY"];
-    [NCMB setApplicationKey:@"700682dae38ea52b050d0f4bb3837cacb10d51b96de25a9ce756d90daee35d50" clientKey:@"425594e1a2d71b0007cf7337f93ccd6e24d58ba73893763ebce90c36308a5e99"];
+    [NCMB setApplicationKey:@"YOUR_NCMB_APPLICATION_KEY" clientKey:@"YOUR_NCMB_CLIENT_KEY"];
     return YES;
 }
 
