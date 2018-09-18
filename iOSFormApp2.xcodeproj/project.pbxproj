@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1731A48D20E4C2720050AD20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731A48F20E4C2720050AD20 /* Localizable.strings */; };
 		1756569A20D3613600ABECE5 /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1756569920D3613600ABECE5 /* Demo1ViewController.m */; };
 		1756569D20D3A87E00ABECE5 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1756569C20D3A87E00ABECE5 /* Demo2ViewController.m */; };
 		175656A020D3AD1700ABECE5 /* Demo2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1756569F20D3AD1700ABECE5 /* Demo2TableViewCell.m */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1731A48E20E4C2720050AD20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1756569820D3613600ABECE5 /* Demo1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
 		1756569920D3613600ABECE5 /* Demo1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
 		1756569B20D3A87E00ABECE5 /* Demo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				1760AA5820D25C0C00E3AFBC /* Assets.xcassets */,
 				1760AA5A20D25C0C00E3AFBC /* LaunchScreen.storyboard */,
 				1760AA5D20D25C0C00E3AFBC /* Info.plist */,
-				1731A48F20E4C2720050AD20 /* Localizable.strings */,
 				1760AA5E20D25C0C00E3AFBC /* main.m */,
 			);
 			path = iOSFormApp2;
@@ -235,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1731A48D20E4C2720050AD20 /* Localizable.strings in Resources */,
 				1760AA5C20D25C0C00E3AFBC /* LaunchScreen.storyboard in Resources */,
 				1760AA5920D25C0C00E3AFBC /* Assets.xcassets in Resources */,
 				1760AA5720D25C0C00E3AFBC /* Main.storyboard in Resources */,
@@ -308,14 +304,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1731A48F20E4C2720050AD20 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1731A48E20E4C2720050AD20 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		1760AA5520D25C0C00E3AFBC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
