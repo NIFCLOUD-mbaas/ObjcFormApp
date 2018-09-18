@@ -52,40 +52,42 @@
 #pragma action
 - (IBAction)btnSearchByEmail:(id)sender {
     if ([@"" isEqualToString:_txtEmail.text]) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"please fill in the value", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"データの取得に失敗しました", nil)];
     } else {
         [ProgressHUD show:@"Loading..."];
         [Mbaas getSearchData:_txtEmail.text searchBy:SearchByEmail successCallback:^(NSArray *objects) {
             //検索成功時の処理
             arrTbvData = objects;
-            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"Condition Search Result", nil), (unsigned long)arrTbvData.count];
+            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"条件検索結果：%lu件", nil), (unsigned long)arrTbvData.count];
             [self.table reloadData];
             _viewResultCount.hidden = NO;
             [ProgressHUD dismiss];
+            NSLog(@"メールアドレス検索成功");
         } errorCallback:^(NSError *error) {
             //検索失敗時の処理
             [ProgressHUD dismiss];
-            [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Data acquisition failed", nil)];
+            [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"データの取得に失敗しました", nil)];
         }];
     }
 }
 - (IBAction)btnSearchByPre:(id)sender {
     if ([_pickerPre selectedRowInComponent:0] == 0) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"please fill in the value", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"値を選択してください", nil)];
     } else {
         [ProgressHUD show:@"Loading..."];
         NSString *prefecture = [_pickerPreData objectAtIndex:[_pickerPre selectedRowInComponent:0]];
         [Mbaas getSearchData:prefecture searchBy:SearchByPrefecture successCallback:^(NSArray *objects) {
             //検索成功時の処理
             arrTbvData = objects;
-            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"Condition Search Result", nil), (unsigned long)arrTbvData.count];
+            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"条件検索結果：%lu件", nil), (unsigned long)arrTbvData.count];
             [self.table reloadData];
             _viewResultCount.hidden = NO;
             [ProgressHUD dismiss];
+            NSLog(@"都道府県検索成功");
         } errorCallback:^(NSError *error) {
             //検索失敗時の処理
             [ProgressHUD dismiss];
-            [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Data acquisition failed", nil)];
+            [Utils showAlert:self title:@"都道府県検索失敗" message:NSLocalizedString(@"データの取得に失敗しました", nil)];
         }];
     }
 }

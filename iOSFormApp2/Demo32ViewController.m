@@ -56,22 +56,23 @@
     NSInteger greater = [_pickerGreaterThan selectedRowInComponent:0] - 1;
     NSInteger less = [_pickerLessThan selectedRowInComponent:0] -1;
     if (greater == -1 || less == -1) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"please fill in the value", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"未入力の項目があります", nil)];
     } else if (greater >= less) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Value is invalid", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"値が不正です", nil)];
     } else {
         [ProgressHUD show:@"Loading..."];
         [Mbaas getRangeSearchData:[NSNumber numberWithInteger:greater] ageLessThan:[NSNumber numberWithInteger:less] successCallback:^(NSArray *objects) {
             //検索成功時の処理
             arrTbvData = objects;
-            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"Conditional search (range designation) result", nil), (unsigned long)arrTbvData.count];
+            self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"条件検索(範囲指定)結果：%lu件", nil), (unsigned long)arrTbvData.count];
             [self.table reloadData];
             _viewResultCount.hidden = NO;
             [ProgressHUD dismiss];
+            NSLog(@"年齢検索成功");
         } errorCallback:^(NSError *error) {
             //検索失敗時の処理
             [ProgressHUD dismiss];
-            [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Data acquisition failed", nil)];
+            [Utils showAlert:self title:@"年齢検索失敗" message:NSLocalizedString(@"データの取得に失敗しました", nil)];
         }];
     }
 }
