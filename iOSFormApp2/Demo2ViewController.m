@@ -47,12 +47,13 @@
     [ProgressHUD show:@"Loading..."];
     [Mbaas getAllData:^(NSArray *objects) {
         arrData = objects;
-        self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"All search results", nil), (unsigned long)arrData.count];
+        self.lblResultCount.text = [NSString stringWithFormat:NSLocalizedString(@"全件検索結果：%lu件", nil), (unsigned long)arrData.count];
         [self.table reloadData];
         [ProgressHUD dismiss];
+        NSLog(@"全件検索成功");
     } errorCallback:^(NSError *error) {
         [ProgressHUD dismiss];
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Data acquisition failed", nil)];
+        [Utils showAlert:self title:@"全件検索失敗" message:NSLocalizedString(@"データの取得に失敗しました", nil)];
         NSLog(@"全件検索失敗：%@", error);
     }];
 }

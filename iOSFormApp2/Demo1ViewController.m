@@ -73,17 +73,17 @@
 - (IBAction)btnSaveClick:(id)sender {
     // 入力チェック
     if ([@"" isEqualToString:_txtName.text]) {
-        [Utils showAlert:self title:@"Alert" message: NSLocalizedString(@"Name is not entered", nil)];
+        [Utils showAlert:self title:@"確認" message: NSLocalizedString(@"名前が入力されていません", nil)];
     } else if ([@"" isEqualToString:_txtEmail.text]) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"E-mail address is not entered", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"メールアドレスが入力されていません", nil)];
     } else if ([_pickerAge selectedRowInComponent:0] == 0) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Age has not been entered", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"年齢が入力されていません", nil)];
     } else if ([_pickerPre selectedRowInComponent:0] == 0) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"State or province is not entered", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"都道府県が入力されていません", nil)];
     } else if ([@"" isEqualToString:_txtTitle.text]) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Inquiry title has not been entered", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"問い合わせタイトル\nが入力されていません", nil)];
     } else if ([@"" isEqualToString:_txtContents.text]) {
-        [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Inquiry content is not entered", nil)];
+        [Utils showAlert:self title:@"確認" message:NSLocalizedString(@"問い合わせ内容が入力されていません", nil)];
 
         // データの保存
     } else {
@@ -98,10 +98,10 @@
             [ProgressHUD dismiss];
             if (error) {
                 //保存失敗
-                [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"I failed to accept inquiries", nil)];
+                [Utils showAlert:self title:@"保存失敗" message:NSLocalizedString(@"お問い合わせの受付に失敗しました", nil)];
             } else {
                 // 保存成功
-                [Utils showAlert:self title:@"Alert" message:NSLocalizedString(@"Inquiries accepted", nil)];
+                [Utils showAlert:self title:@"保存成功" message:NSLocalizedString(@"お問い合わせを受付ました", nil)];
             }
         }];
     }
