@@ -268,7 +268,7 @@ __http://bit.ly/natsumo_ObjcFormApp__
 ### mobile backend iOS SDK の導入
 
 .size_small_7[.color_red[__注意__]<br>
-Xcode プロジェクト「ObjcFormApp.xcodeproj」はまだ起動しないでください！]
+Xcode プロジェクト「iOSFormApp2.xcodeproj」はまだ起動しないでください！]
 
 * mobile backend を使うための iOS SDK を導入していきます
 * ターミナルを開きます
@@ -311,7 +311,7 @@ Xcode プロジェクト「ObjcFormApp.xcodeproj」はまだ起動しないで�
 #### SDK のインストール
 
 * ターミナルで以下を実行します
-  * 先ほどダウンロードしたフォルダ内にある Xcode プロジェクト「ObjcFormApp.xcodeproj」と同じディレクトリに移動
+  * 先ほどダウンロードしたフォルダ内にある Xcode プロジェクト「iOSFormApp2.xcodeproj」と同じディレクトリに移動
   ```bash
   $ cd 'プロジェクトパス'
   ```
@@ -344,7 +344,7 @@ target 'iOSFormApp2' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
+  pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_ios.git'
   pod 'UITextView+Placeholder'
   pod 'ProgressHUD'
   pod 'IQKeyboardManager'
@@ -379,7 +379,7 @@ end
 ]
 ### mobile backend iOS SDK の導入
 #### SDK のインストール
-* Xcode プロジェクト「ObjcFormApp.xcworkspace」が作成されます
+* Xcode プロジェクト「iOSFormApp2.xcworkspace」が作成されます
 
 .center[<img src="document-img/create_workspace.png" alt="terminalcreate_workspace_icon" width="450px">]
 
@@ -391,12 +391,12 @@ end
 ]
 ### サンプルプロジェクトを開く
 
-* 作成された Xcode プロジェクト「ObjcFormApp.xcworkspace」をダブルクリックします
+* 作成された Xcode プロジェクト「iOSFormApp2.xcworkspace」をダブルクリックします
 * Xcode が起動し、プロジェクトが開かれます
 
 .center[<img src="document-img/open_Xcode.png" alt="open_Xcode" width="500px">]
 
-.size_small_7[.color_red[__注意__]<br>青いアイコンの「ObjcFormApp.xcodeproj」からXcodeを起動しても動作しません。<br>必ず白いアイコンの「ObjcFormApp.xcworkspace」から起動してください。]
+.size_small_7[.color_red[__注意__]<br>青いアイコンの「iOSFormApp2.xcodeproj」からXcodeを起動しても動作しません。<br>必ず白いアイコンの「iOSFormApp2.xcworkspace」から起動してください。]
 
 ---
 .footnote_right[
@@ -553,7 +553,7 @@ NCMBObject *object = [NCMBObject objectWithClassName:@"Inquiry"];
 [object saveInBackgroundWithBlock:^(NSError *error) {
     //保存成功or失敗の処理
     errorCallback(error);
-}]
+}];
 ```
 
 `saveInBackgroundWithBlock` : データの保存処理
