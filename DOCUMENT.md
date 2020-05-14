@@ -115,6 +115,7 @@ layout: false
     * 端末: iphone 8 (13.4)
     * Xcode: ver.11.4 
     * MacOS: ver.10.15.4 
+    
 * ニフクラ mobile backend の利用登録（無料）
   * https://mbaas.nifcloud.com/signup.htm
   * SNS ID でアカウントを取得してください
