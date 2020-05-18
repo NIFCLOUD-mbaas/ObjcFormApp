@@ -111,8 +111,11 @@ layout: false
 ## 事前準備
 
 * Mac と以下の環境を使用します
-  * Xcode ver.9 以上推奨
-  * ターミナル
+    * iOS: OS ver.10.0 ~ ver.13.4
+    * 端末: iphone 8 (13.4)
+    * Xcode: ver.11.4 
+    * MacOS: ver.10.15.4 
+    
 * ニフクラ mobile backend の利用登録（無料）
   * https://mbaas.nifcloud.com/signup.htm
   * SNS ID でアカウントを取得してください
@@ -1226,7 +1229,6 @@ NCMBQuery *query = [NCMBQuery orQueryWithSubqueries:@[subQuery1,subQuery2]];
 ]
 ]
 ]
-
 ---
 layout: true
 class: center, middle, inverse_sub
